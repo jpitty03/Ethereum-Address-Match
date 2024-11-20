@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "dependencies": {
+    "async": "^3.2.6",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "eth-crypto": "^2.7.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.4",
+    "web3": "^4.15.0"
+  }
+}
