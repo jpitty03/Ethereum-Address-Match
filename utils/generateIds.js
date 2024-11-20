@@ -1,11 +1,13 @@
 import fs from 'fs';
 import EthCrypto from 'eth-crypto';
+import dotenv from 'dotenv'
+dotenv.config();
 
 // Asynchronous wrapper around generateIdentitiesAndWriteToFile
 export async function generateIdentitiesAndWriteToFile(filename) {
     return new Promise((resolve, reject) => {
         const identities = [];
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= process.env.RECORDS; i++) {
             const identity = EthCrypto.createIdentity();
             const objectWithUniqueKey = { ...identity, uniqueKey: i };
             identities.push(objectWithUniqueKey);

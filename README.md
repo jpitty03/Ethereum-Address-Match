@@ -3,9 +3,9 @@
 This project imports Ethereum wallet data into a MySQL database for analysis. The data is sourced from Google BigQuery and processed for efficient storage and querying.
 
 ## Average Loop Time
-![Average Loop Time](https://img.shields.io/badge/average_loop_time-0.01s-brightgreen)
-
-This badge displays the average time it takes for each loop in the script to run.
+![Average Loop Time](https://img.shields.io/badge/average_loop_time-15.07s-brightgreen)
+![Release Version](https://img.shields.io/badge/release-1.0.1-blue)
+![Records Per Loop](https://img.shields.io/badge/records_per_loop-10000-orange)
 
 ## Prerequisites
 
