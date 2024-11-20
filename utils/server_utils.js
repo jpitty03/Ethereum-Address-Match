@@ -1,16 +1,17 @@
 import fs from 'fs/promises';
-import csvParser from 'csv-parser';
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv'
+dotenv.config();
 
 const db_config = {
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'eth'
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
 };
 
 const connection = await mysql.createConnection(db_config);
-const csvDir = 'C:\\Users\\jpitt\\Downloads\\split_files';
+const csvDir = process.env.CSV_PATH;
 
 try {
     const files = await fs.readdir(csvDir);
@@ -44,8 +45,8 @@ async function loadCSVFile(filePath, connection) {
 
 // MySQL connection configuration
 export const searchConnection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'password',
-    database: 'eth'
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE
   });

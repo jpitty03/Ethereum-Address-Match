@@ -5,7 +5,7 @@ import EthCrypto from 'eth-crypto';
 export async function generateIdentitiesAndWriteToFile(filename) {
     return new Promise((resolve, reject) => {
         const identities = [];
-        for (let i = 1; i <= 10000; i++) {
+        for (let i = 1; i <= 10; i++) {
             const identity = EthCrypto.createIdentity();
             const objectWithUniqueKey = { ...identity, uniqueKey: i };
             identities.push(objectWithUniqueKey);
