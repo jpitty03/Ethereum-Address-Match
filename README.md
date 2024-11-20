@@ -82,6 +82,60 @@ This project imports Ethereum wallet data into a MySQL database for analysis. Th
 - Ensure your MySQL server is configured to allow local file imports. You may need to enable the `LOCAL_INFILE` option.
 - Modify paths in `server_utils.js` and other scripts as needed to match your local environment.
 
+## About This Research Project
+
+This project is a research initiative designed to demonstrate the vast scale of the Ethereum blockchain and its network of addresses. By importing Ethereum wallet data into a MySQL database and performing matching operations, we can better understand the challenges involved in processing and analyzing blockchain data.
+
+The Ethereum blockchain contains approximately **8.4 million active addresses**. This project processes addresses in batches of **10,000 records at a time** and attempts to find matches in the database. Here's a breakdown of the computation and time estimation:
+
+### Mathematical Analysis
+
+#### Time Analysis
+
+- **Total Records to Process:** 8,400,000 active Ethereum addresses.
+- **Batch Size:** 10,000 randomly generated addresses.
+- **Total Batches:** 8,400,000 ÷ 10,000 = 840.
+- **Average Time per Batch:** 15 seconds.
+
+- **Total Time to Process All Batches:**  
+  Total Time (seconds) = Total Batches × Average Time per Batch  
+  840 × 15 = 12,600 seconds.
+
+- **Convert to Hours:**  
+  Total Time (hours) = Total Time (seconds) ÷ 3600  
+  12,600 ÷ 3600 ≈ 3.5 hours.
+
+#### Probability of Finding a Match
+
+- **Ethereum Address Space:** Ethereum uses a 160-bit address space, which equals approximately 1.46 × 10⁴⁸ possible addresses.
+- **Active Addresses in Dataset:** 8.4 million.
+
+- **Probability of a Match for a Single Random Address:**  
+  Probability = Active Addresses ÷ Total Ethereum Address Space  
+  Probability ≈ 8.4 million ÷ 1.46 × 10⁴⁸  
+  Probability ≈ 5.75 × 10⁻⁴².
+
+- **Probability of Finding a Match in a Batch of 10,000 Random Addresses:**  
+  Even with 10,000 random addresses, the probability of finding a match is effectively zero due to the immense size of the Ethereum address space.
+
+#### Key Takeaways
+
+1. **Improbability of Match:**  
+   - The chance of randomly generating a private key that matches an active Ethereum address is astronomically low. The Ethereum address space is so large that brute-forcing a match is practically impossible.
+
+2. **Cryptographic Security:**  
+   - This project demonstrates the robustness of Ethereum's cryptographic design, highlighting the infeasibility of guessing active addresses.
+---
+
+## Insights from the Project
+
+This research highlights:
+1. The **sheer scale** of the Ethereum network and the computational effort required to process blockchain data.
+2. The importance of **efficient batch processing** and database optimization when working with large datasets.
+3. The potential for leveraging **AI/ML models** to analyze patterns in wallet activity or transaction data for faster insights.
+
+By processing Ethereum addresses in this manner, this project provides a foundation for more advanced blockchain analytics, demonstrating the feasibility of handling massive datasets at scale.
+
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
