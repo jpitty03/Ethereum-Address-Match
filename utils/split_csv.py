@@ -43,7 +43,7 @@ def split_csv(file_path, output_dir, chunk_size):
 
 # Usage
 if __name__ == "__main__":
-    input_file = 'C:/Users/jpitt/Downloads/wallet.csv'  # Path to the large CSV file
+    input_file = 'C:/Users/jpitt/Downloads/bg_11-16.csv'  # Path to the large CSV file
     output_directory = 'C:/Users/jpitt/Downloads/split_files'  # Output directory
     rows_per_chunk = 300000  # Number of rows per chunk (excluding header)
     

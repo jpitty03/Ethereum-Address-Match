@@ -13,6 +13,21 @@ export async function generateIdentitiesAndWriteToFile(filename) {
             identities.push(objectWithUniqueKey);
         }
 
+        /*
+        Push testId to the end of your json for testing.
+        Be sure to run the query below to add the test address
+        INSERT INTO wallets (address, eth_balance) VALUES ('0x2020202020202020202020202020202020202020', 1151515515155151515151);
+        */
+
+        // const testId = {
+        //     privateKey: '0x101010101010101010101010101010101010101010101010101010101010010',
+        //     publicKey: '5cdb1301bd102fa9d0f2ff0d37b953b12b19f921714b1ae6b2b713973c071dc8c40e3ee01b1d7cec7b152d4a96004ee861913fab914864b54a88700a7060cb53',
+        //     address: '0x2020202020202020202020202020202020202020',
+        //     uniqueKey: 20202020
+        //   };
+        
+        // identities.push(testId);
+
         const jsonString = JSON.stringify(identities, null, 2);
         fs.writeFile(filename, jsonString, (err) => {
             if (err) {

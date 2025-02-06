@@ -3,7 +3,7 @@
 This project imports Ethereum wallet data into a MySQL database for analysis. The data is sourced from Google BigQuery and processed for efficient storage and querying.
 
 ## Average Loop Time
-![Average Loop Time](https://img.shields.io/badge/average_loop_time-15.07s-brightgreen)
+![Average Loop Time](https://img.shields.io/badge/average_loop_time-24.77s-brightgreen)
 ![Release Version](https://img.shields.io/badge/release-1.0.1-blue)
 ![Records Per Loop](https://img.shields.io/badge/records_per_loop-10000-orange)
 
@@ -16,10 +16,11 @@ This project imports Ethereum wallet data into a MySQL database for analysis. Th
    - Create a database named `eth`:
      ```sql
      CREATE DATABASE eth;
+     USE eth;
      ```
    - Create two tables: `wallets` and `wallets_t`:
      ```sql
-     CREATE TABLE wallets (
+     CREATE TABLE wallets_t (
          address VARCHAR(255) NOT NULL,
          eth_balance DECIMAL(30,0),
          PRIMARY KEY (address)
@@ -43,7 +44,7 @@ This project imports Ethereum wallet data into a MySQL database for analysis. Th
      ```sql
      SELECT `address`, `eth_balance`
      FROM `bigquery-public-data.crypto_ethereum.balances`
-     WHERE `eth_balance` >  2000000.0e18
+     WHERE `eth_balance` >  2.0e14
      ORDER BY `eth_balance` DESC;
      ```
    - Export the query results as CSV files to a Google Cloud Storage bucket.
@@ -51,6 +52,7 @@ This project imports Ethereum wallet data into a MySQL database for analysis. Th
 
 ### 2. Process the CSV Files
    - Run the Python script `split_csv.py` to split the large CSV file into smaller chunks for easier processing:
+   - Edit the directories in /utils/split_csv.py to point the input/output files to the correct directory
      ```bash
      python split_csv.py
      ```

@@ -14,9 +14,9 @@ const version = packageJson.version || 'v1.0.0';
 const recordsPerLoop = process.env.RECORDS || 10000;
 
 let x = 0;
-const maxRuns = 2; // Number of loops
+const maxRuns = -1; // Number of loops
 const tempFile = 'riches/temp.json';
-const richesFiles = 'riches.json';
+const richesFiles = 'riches/riches.json';
 const loopTimes = [];
 
 // Establish database connection
